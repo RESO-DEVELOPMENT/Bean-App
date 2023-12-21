@@ -2,10 +2,12 @@ import 'dart:io';
 import 'dart:ui';
 
 import 'package:bean_app/setup.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_strategy/url_strategy.dart';
 
+import 'firebase_options.dart';
 import 'helper/responsive_helper.dart';
 import 'theme/light_theme.dart';
 import 'utils/app_constants.dart';
@@ -17,12 +19,15 @@ import 'view/screen/not_found_screen.dart';
 import 'view/screen/root_screen.dart';
 import 'view/screen/splash_screen.dart';
 
-void main() {
+Future<void> main() async {
   if (ResponsiveHelper.isMobilePhone()) {
     HttpOverrides.global = MyHttpOverrides();
   }
   WidgetsFlutterBinding.ensureInitialized();
   setPathUrlStrategy();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   createRouteBindings();
   runApp(const MyApp());
 }

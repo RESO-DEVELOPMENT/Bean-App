@@ -1,17 +1,10 @@
-import 'dart:async';
-
+import 'package:bean_app/view/screen/home/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:expandable_bottom_sheet/expandable_bottom_sheet.dart';
-import '../../helper/responsive_helper.dart';
 import '../../utils/dimensions.dart';
-import '../../utils/images.dart';
-import '../../utils/route_constrant.dart';
 import '../../widget/bottom_nav_item.dart';
 import '../../widget/cart_widget.dart';
-import '../../widget/dialog/dialog.dart';
-import 'home/home.dart';
 import 'orders/order_screen.dart';
 
 class RootScreen extends StatefulWidget {
@@ -31,8 +24,6 @@ class _RootScreenState extends State<RootScreen> {
   List<Widget> portraitViews = [
     HomePage(),
     OrdersScreen(),
-    HomePage(),
-    HomePage(),
   ];
 
   @override
